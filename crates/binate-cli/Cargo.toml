@@ -1,0 +1,16 @@
+[package]
+name = "binate"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "binate"
+path = "src/main.rs"
+
+[dependencies]
+binate-core        = { path = "../binate-core" }
+clap               = { version = "4.5", features = ["derive", "color"] }
+console            = "0.15"
+similar            = { version = "2.6", features = ["text"] }
+serde_json         = "1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
