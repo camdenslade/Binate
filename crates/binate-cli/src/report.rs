@@ -11,7 +11,6 @@ pub enum OutputFormat {
 }
 
 pub struct ReportConfig {
-    pub format: OutputFormat,
     pub context_lines: usize,
     pub color: bool,
 }

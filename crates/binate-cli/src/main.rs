@@ -5,7 +5,7 @@ use binate_core::{
     MmapBinaryProvider, Normalizer, NormalizerChain, SemanticDiff, TimestampNormalizer,
 };
 use clap::{Parser, Subcommand, ValueEnum};
-use report::{JsonReporter, OutputFormat, ReportConfig, Reporter, SarifReporter, TerminalReporter};
+use report::{JsonReporter, ReportConfig, Reporter, SarifReporter, TerminalReporter};
 use std::path::PathBuf;
 use std::process;
 use tracing_subscriber::EnvFilter;
@@ -164,11 +164,6 @@ fn run(cli: Cli) -> binate_core::Result<i32> {
             let result = SemanticDiff::compare(&left_bin, &right_bin, &config)?;
 
             let rep_cfg = ReportConfig {
-                format: match format {
-                    OutputFmt::Terminal => OutputFormat::Terminal,
-                    OutputFmt::Json => OutputFormat::Json,
-                    OutputFmt::Sarif => OutputFormat::Sarif,
-                },
                 context_lines: context,
                 color: console::colors_enabled(),
             };
