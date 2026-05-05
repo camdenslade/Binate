@@ -1,6 +1,6 @@
 [package]
 name = "binate-cli"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Reproducible build validator for Rust binaries"
 license = "MIT"
