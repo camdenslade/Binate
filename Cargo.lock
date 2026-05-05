@@ -68,7 +68,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "binate"
+name = "binate-cli"
 version = "0.1.0"
 dependencies = [
  "binate-core",
