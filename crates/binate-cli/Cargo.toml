@@ -2,13 +2,16 @@
 name = "binate"
 version = "0.1.0"
 edition = "2021"
+description = "Reproducible build validator for Rust binaries"
+license = "MIT"
+repository = "https://github.com/camdenslade/binate"
 
 [[bin]]
 name = "binate"
 path = "src/main.rs"
 
 [dependencies]
-binate-core        = { path = "../binate-core" }
+binate-core        = { path = "../binate-core", version = "0.1.0" }
 clap               = { version = "4.5", features = ["derive", "color"] }
 console            = "0.15"
 similar            = { version = "2.6", features = ["text"] }

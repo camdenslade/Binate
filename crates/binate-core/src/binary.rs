@@ -34,7 +34,6 @@ struct ParsedSection {
     address: u64,
     offset: usize,
     size: usize,
-    file_range: Option<(u64, u64)>,
 }
 
 pub struct MmapBinaryProvider {
@@ -96,7 +95,6 @@ impl MmapBinaryProvider {
                         address,
                         offset: 0,
                         size: 0,
-                        file_range: None,
                     });
                     continue;
                 }
@@ -114,7 +112,6 @@ impl MmapBinaryProvider {
                 address,
                 offset,
                 size,
-                file_range: Some((offset as u64, size as u64)),
             });
         }
 

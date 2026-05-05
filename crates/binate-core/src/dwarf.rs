@@ -29,7 +29,6 @@ struct DwarfSections {
     debug_ranges:      Vec<u8>,
     debug_rnglists:    Vec<u8>,
     debug_addr:        Vec<u8>,
-    endian:            RunTimeEndian,
 }
 
 impl DwarfIndex {
@@ -57,7 +56,6 @@ impl DwarfIndex {
             debug_ranges:      load(".debug_ranges"),
             debug_rnglists:    load(".debug_rnglists"),
             debug_addr:        load(".debug_addr"),
-            endian,
         });
 
         // SAFETY: `_sections` keeps the Vec<u8> buffers alive for the entire
