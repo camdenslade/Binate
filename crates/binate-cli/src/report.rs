@@ -3,13 +3,6 @@ use console::style;
 use similar::{ChangeTag, TextDiff};
 use std::fmt::Write as FmtWrite;
 
-#[derive(Clone, Debug)]
-pub enum OutputFormat {
-    Terminal,
-    Json,
-    Sarif,
-}
-
 pub struct ReportConfig {
     pub context_lines: usize,
     pub color: bool,
