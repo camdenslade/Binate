@@ -10,7 +10,7 @@
 
 ---
 
-Binate compares two Rust binaries and tells you whether they are truly identical — not just byte-for-byte, but semantically. It masks known sources of non-determinism (build IDs, timestamps, absolute paths) before comparing, so you only see genuine differences. When it finds one, it maps it back to the source symbol and DWARF file/line location.
+Binate compares two Rust binaries and tells you whether they are truly identical, not just byte-for-byte, but semantically. It masks known sources of non-determinism (build IDs, timestamps, absolute paths) before comparing, so you only see genuine differences. When it finds one, it maps it back to the source symbol and DWARF file/line location.
 
 ## Install
 
@@ -21,7 +21,7 @@ cargo install --path .
 ## Usage
 
 ```sh
-# Compare two builds — exit 0 if identical after normalization
+# Compare two builds (exit 0 if identical after normalization)
 binate compare left.elf right.elf
 
 # Show disassembly diff for changed symbols (x86/x86-64)
@@ -45,11 +45,11 @@ binate symbols ./target/debug/mybinary
 
 Binate runs a five-stage pipeline:
 
-1. **Load** — memory-maps both binaries via `memmap2`; no full read into RAM
-2. **Normalize** — masks build IDs, timestamps, linker version strings, and absolute paths before comparison
-3. **Diff** — O(n) linear scan over each section in parallel (`rayon`); identical sections are skipped instantly
-4. **Attribute** — maps each differing byte range to a symbol via a `BTreeMap`-indexed symbol table
-5. **Enrich** — resolves each changed symbol to a source file and line number using DWARF debug info (`gimli`)
+1. **Load**: memory-maps both binaries via `memmap2`, no full read into RAM
+2. **Normalize**: masks build IDs, timestamps, linker version strings, and absolute paths before comparison
+3. **Diff**: O(n) linear scan over each section in parallel (`rayon`), identical sections are skipped instantly
+4. **Attribute**: maps each differing byte range to a symbol via a `BTreeMap`-indexed symbol table
+5. **Enrich**: resolves each changed symbol to a source file and line number using DWARF debug info (`gimli`)
 
 ## Normalizers
 

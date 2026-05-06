@@ -52,8 +52,6 @@ impl Default for NormalizerChain {
     }
 }
 
-// ── BuildIdNormalizer ────────────────────────────────────────────────────────
-
 pub struct BuildIdNormalizer;
 
 impl Normalizer for BuildIdNormalizer {
@@ -68,8 +66,6 @@ impl Normalizer for BuildIdNormalizer {
         Cow::Owned(vec![0u8; data.len()])
     }
 }
-
-// ── TimestampNormalizer ──────────────────────────────────────────────────────
 
 pub struct TimestampNormalizer;
 
@@ -96,8 +92,6 @@ impl Normalizer for TimestampNormalizer {
         Cow::Owned(out)
     }
 }
-
-// ── AbsolutePathNormalizer ───────────────────────────────────────────────────
 
 pub struct AbsolutePathNormalizer {
     pattern: regex::bytes::Regex,
@@ -134,8 +128,6 @@ impl Default for AbsolutePathNormalizer {
         Self::new()
     }
 }
-
-// ── LinkerVersionNormalizer ──────────────────────────────────────────────────
 
 pub struct LinkerVersionNormalizer;
 

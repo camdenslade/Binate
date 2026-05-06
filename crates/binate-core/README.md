@@ -1,6 +1,6 @@
 # binate-core
 
-The analysis engine behind [Binate](../../README.md) — a semantic diff library for validating reproducible Rust builds.
+The analysis engine behind [Binate](../../README.md), a semantic diff library for validating reproducible Rust builds.
 
 ## Usage
 
@@ -28,7 +28,7 @@ if result.identical {
     println!("Reproducible.");
 } else {
     for diff in &result.symbol_diffs {
-        println!("{} — {} range(s) differ", diff.symbol.name, diff.ranges.len());
+        println!("{}: {} range(s) differ", diff.symbol.name, diff.ranges.len());
         if let Some(loc) = &diff.source_location {
             println!("  {}:{}", loc.file, loc.line.unwrap_or(0));
         }
@@ -38,7 +38,7 @@ if result.identical {
 
 ## What it does
 
-1. Memory-maps both binaries (`memmap2`) — no full read into RAM
+1. Memory-maps both binaries (`memmap2`), no full read into RAM
 2. Normalizes away known non-determinism (build IDs, timestamps, absolute paths)
 3. Byte-diffs each section in parallel (`rayon`)
 4. Attributes each differing byte range to a symbol via O(log n) address lookup
